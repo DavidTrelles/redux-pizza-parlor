@@ -13,3 +13,18 @@
 .App-title {
   font-size: 2em;
 }
+
+.photo {
+  width: 200px;
+}
+
+.menuBox {
+  border: 1px solid gray;
+  box-shadow: 1px 1px 4px;
+  display: inline-block;
+  vertical-align: top;
+  width: 250px;
+  height: 430px;
+  margin: 7px;
+  padding: 10px;
+}
