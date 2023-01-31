@@ -2,23 +2,30 @@ import axios from "axios";
 import { useState } from "react";
 import { useSelector, useDispatch } from 'react-redux';
 
-function Details({ fetchBookList }) {
+function Details() {
   const [name, setName] = useState("");
   const [streetAddress, setStreetAddress] = useState("");
   const [cityName, setCityName] = useState("");
   const [zip, setZip] = useState("");
-  const [newCustomer, setNewCustomer] = useState ({});
+//   const [newCustomer, setNewCustomer] = useState ({});
   const dispatch = useDispatch();
 
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    
     dispatch({
       type: 'ADD_CUSTOMER',
       payload: newCustomer
     });
-    setNewCustomer("");
-    };
+    // newCustomer({});
+    setName('');
+    setStreetAddress('');
+    setCityName('');
+    setZip('');
+};
+
+    const newCustomer = {name, streetAddress, cityName, zip};
 
   return (
     <section>
@@ -30,6 +37,7 @@ function Details({ fetchBookList }) {
           value={name}
           onChange={(event) => setName(event.target.value)}
         />
+        <br />
 
         <input
           required
@@ -37,6 +45,7 @@ function Details({ fetchBookList }) {
           value={streetAddress}
           onChange={(event) => setStreetAddress(event.target.value)}
         />
+        <br />
 
          <input
           required
@@ -44,6 +53,7 @@ function Details({ fetchBookList }) {
           value={cityName}
           onChange={(event) => setCityName(event.target.value)}
         />
+        <br />
 
          <input
           required
@@ -51,8 +61,17 @@ function Details({ fetchBookList }) {
           value={zip}
           onChange={(event) => setZip(event.target.value)}
         />
+        <br />
 
-        <button type="submit">Submit</button>
+    <input type="radio" name="delivery"/>
+    <label htmlFor="delivery">Delivery</label><br/> 
+
+    <input type="radio" name="pickup"/>
+    <label htmlFor="pickup">Pickup</label><br/>  
+
+    <button type="submit">Submit</button>
+        <br/>
+
       </form>
     </section>
   );

@@ -19,7 +19,7 @@ const cartR = (state = [], action) => {
 // running total
 const totalR = (state=0, action)=>{
 if (action.type === "ADD_TO_TOTAL"){
-    return state +1;
+    return state += action.payload;
 }else if(action.type==="SUBTRACT_FROM_TOTAL"){
     return state -1
 }return state;
@@ -27,10 +27,10 @@ if (action.type === "ADD_TO_TOTAL"){
 
 const detailsR = (state = {}, action) => {
     // gets cust details
-    console.log("action inside elementList", action.payload);
   if (action.type === "ADD_CUSTOMER") {
-    let newArray = [...state, action.payload];
-    return newArray;
+    // let newArray = [...state, action.payload];
+    state = action.payload;
+    console.log("action inside detailsR", action.payload);
   }
     return state;
 }
