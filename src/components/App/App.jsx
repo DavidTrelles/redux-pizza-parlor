@@ -44,9 +44,9 @@ function App() {
         <Route path="/details" >
           <Details />
         </Route>
-        {/* <Route path="checkout" >
+        <Route path="/checkout" >
           <Checkout />
-        </Route> */}
+        </Route>
     
       </div>
     </Router>

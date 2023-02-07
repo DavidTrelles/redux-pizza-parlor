@@ -19,9 +19,9 @@ const cartR = (state = [], action) => {
 // running total
 const totalR = (state=0, action)=>{
 if (action.type === "ADD_TO_TOTAL"){
-    return state += action.payload;
+    return state + action.payload;
 }else if(action.type==="SUBTRACT_FROM_TOTAL"){
-    return state -1
+    return state -1;
 }return state;
 }
 

@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import { useSelector, useDispatch } from 'react-redux';
+import {useHistory} from 'react-router-dom';
 
 function Details() {
   const [name, setName] = useState("");
@@ -10,6 +11,7 @@ function Details() {
   const [type, setType] = useState("");
 //   const [newCustomer, setNewCustomer] = useState ({});
   const dispatch = useDispatch();
+  const history = useHistory();
 
 
   const handleSubmit = (event) => {
@@ -24,6 +26,7 @@ function Details() {
     setStreetAddress('');
     setCityName('');
     setZip('');
+    history.push('/checkout');
 };
 
   const makeDelivery = () => {
@@ -33,6 +36,7 @@ function Details() {
   const makePickup = () => {
     setType('pickup');
   }
+
 
   const newCustomer = {name, streetAddress, cityName, zip, type};
 
@@ -72,7 +76,7 @@ function Details() {
         />
         <br />
 
-    <input type="radio" value={type} name="delivery" onChange={makeDelivery}/>
+    <input required type="radio" value={type} name="delivery" onChange={makeDelivery}/>
     <label htmlFor="delivery">Delivery</label><br/> 
 
     <input type="radio" value={type} name="delivery" onChange={makePickup}/>
