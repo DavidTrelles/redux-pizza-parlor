@@ -29,8 +29,8 @@ const detailsR = (state = {}, action) => {
     // gets cust details
   if (action.type === "ADD_CUSTOMER") {
     // let newArray = [...state, action.payload];
-    state = action.payload;
     console.log("action inside detailsR", action.payload);
+    return action.payload;
   }
     return state;
 }

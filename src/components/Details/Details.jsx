@@ -7,6 +7,7 @@ function Details() {
   const [streetAddress, setStreetAddress] = useState("");
   const [cityName, setCityName] = useState("");
   const [zip, setZip] = useState("");
+  const [type, setType] = useState("");
 //   const [newCustomer, setNewCustomer] = useState ({});
   const dispatch = useDispatch();
 
@@ -25,7 +26,15 @@ function Details() {
     setZip('');
 };
 
-    const newCustomer = {name, streetAddress, cityName, zip};
+  const makeDelivery = () => {
+    setType('delivery');
+  }
+
+  const makePickup = () => {
+    setType('pickup');
+  }
+
+  const newCustomer = {name, streetAddress, cityName, zip, type};
 
   return (
     <section>
@@ -63,10 +72,10 @@ function Details() {
         />
         <br />
 
-    <input type="radio" name="delivery"/>
+    <input type="radio" value={type} name="delivery" onChange={makeDelivery}/>
     <label htmlFor="delivery">Delivery</label><br/> 
 
-    <input type="radio" name="pickup"/>
+    <input type="radio" value={type} name="delivery" onChange={makePickup}/>
     <label htmlFor="pickup">Pickup</label><br/>  
 
     <button type="submit">Submit</button>
